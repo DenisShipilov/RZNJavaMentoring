@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- =================
+	 	Controllers are here
+	 ====================== -->	
+	<!-- Controller to show login page and perform login action -->
+	<bean id="loginController" class="spring.controllers.LoginController">
+  		 <property name="successView" value="redirect:ShowItems.htm" />
+  		 <property name="user" ref="user"></property>
+  		 <property name="daoFactory" ref="daoFactory" />
+  		 <property name="commandName"  value="user"></property>
+  		 <property name="commandClass" 
+  		 			value="dao.transfer.UserTransfer"></property>
+  		 <property name="validator">
+     		 <bean class="spring.validators.LoginValidator">
+     		 	<property name="daoFactory" ref="daoFactory" />
+     		 </bean> 
+    	 </property> 
+	</bean>
+	
+	<!-- Controller to show items page and perform items action -->
+	<bean id="showItemsController" 
+					class="spring.controllers.ShowItemsController">
+		<property name="daoFactory" ref="daoFactory" />
+		<property name="user" ref="user"></property>
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+				<property name="defaultMethodName" value="showItems"></property>
+				<property name="paramName" value="method" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- Show my items Controller -->
+	<bean id="showMyItemsController" 
+					class="spring.controllers.ShowMyItemsController">
+		<property name="daoFactory" ref="daoFactory" />
+		<property name="user" ref="user" />
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+				<property name="defaultMethodName" value="showMyItems"></property>
+				<property name="paramName" value="action" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- Controller to edit items -->
+	<bean id="editItemController"
+					class="spring.controllers.EditItemController">
+		<property name="successView" value="redirect:ShowItems.htm" />
+		<property name="user" ref="user"/>
+		<property name="daoFactory" ref="daoFactory"/>
+		<property name="commandName"  value="item"></property>
+		<property name="commandClass" 
+  		 			value="dao.transfer.ItemTransfer"></property>
+  		  <property name="validator">
+     		 <bean class="spring.validators.EditItemValidator">
+     		 	<property name="daoFactory" ref="daoFactory" />
+     		 	<property name="user" ref="user"/>    		 	
+     		 </bean> 
+    	 </property> 
+	</bean>
+	
+	
+	<!-- Controller to sell items -->
+	<bean id="sellItemController" 
+	   class="spring.controllers.SellItemController">
+	   <property name="successView" value="redirect:ShowItems.htm" />
+	   <property name="user" ref="user"/>
+	   <property name="daoFactory" ref="daoFactory"/>
+	   <property name="commandName"  value="item"></property>
+	   <property name="commandClass" 
+  		 			value="dao.transfer.ItemTransfer"></property>
+	</bean>
+	
+	<!--  Controller to show blackList -->
+	<bean id="showBlackListController" 
+						class="spring.controllers.ShowBlackListController">
+	  <property name="user" ref="user" />
+	  <property name="daoFactory" ref="daoFactory" />
+	  <property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+				<property name="defaultMethodName" value="showBlackList"></property>
+				<property name="paramName" value="method" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- Controller to show history -->
+	<bean id="showHistoryController"
+						class="spring.controllers.ShowHistoryController">
+		<property name="user" ref="user"/>
+		<property name="daoFactory" ref="daoFactory"/>
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+				<property name="defaultMethodName" value="showHistory"></property>
+				<property name="paramName" value="method" />
+			</bean>
+		</property>
+	</bean>	
+	
+	<!-- Controller to search items -->
+	<bean id="searchItemController" 
+				class="spring.controllers.SearchItemController">
+			<property name="user" ref="user"/>
+			<property name="daoFactory" ref="daoFactory"/>
+ 			<property name="success" value="ShowItems"></property>
+			
+	 </bean>
+	 
+	 
+	 <!-- Controller for advanced search -->
+	 <bean id="advancedSearchController" 
+	 		class="spring.controllers.AdvancedSearchController">
+	 		<property name="user" ref="user"/>
+			<property name="daoFactory" ref="daoFactory"/>
+ 			<property name="success" value="ShowItems"></property>
+ 			<property name="condition" ref="condition"></property>
+ 			<property name="commandName"  value="condition"></property>
+ 			<property name="commandClass" 
+  		 			value="dao.transfer.SearchConditionTransfer"></property>
+  		 	<property name="validator">
+     		 <bean class="spring.validators.AdvancedSearchValidator">
+     		 </bean> 
+    	 </property> 	  
+	 </bean>
+	 
+	 <!-- controller to logout -->
+	 <bean id="logoutController"
+	 			class="spring.controllers.LogoutController">
+	 		<property name="user" ref="user"></property>
+	 		<property name="success" value="Login"></property>
+	 </bean>
+	 
+	 <!-- Controller of registration -->
+	 <bean id="registrationController"
+	      			class="spring.controllers.RegistrationController">
+	     <property name="successView" value="redirect:ShowItems.htm" />
+	     <property name="user" ref="user"></property>
+	     <property name="daoFactory" ref="daoFactory"></property>
+	     <property name="commandName"  value="user"></property>
+  		 <property name="commandClass" 
+  		 			value="dao.transfer.UserTransfer"></property>
+  		 <property name="validator">
+     		 <bean class="spring.validators.RegistrationValidator">
+     		 	<property name="daoFactory" ref="daoFactory" />
+     		 </bean> 
+    	 </property> 
+	      
+	 </bean>
+	 
+	 
+	 <!-- Controller to delete items -->
+	 <bean id="deleteItemController" 
+	 			class="spring.controllers.DeleteItemController">
+	 	<property name="successView" value="redirect:ShowItems.htm" />
+	 	<property name="daoFactory" ref="daoFactory"></property>
+	 	<property name="commandName"  value="user"></property>
+  		 <property name="commandClass" 
+  		 			value="dao.transfer.UserTransfer"></property>
+	 </bean>
+
+	<!-- Mappings -->
+	<bean id="simpleUrlMapping"
+	class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<property name="interceptors">
+		<list>
+			<ref bean="identificationInterceptor" />
+			<ref bean="authenticationInterceptor" />
+		</list>
+	</property>
+	<property name="mappings">
+		<props>
+			<prop key="/Login.htm">loginController</prop>
+			<prop key="/ShowItems.htm">showItemsController</prop>
+			<prop key="/ShowMyItems.htm">showMyItemsController</prop>
+			<prop key="/EditItem.htm">editItemController</prop>
+			<prop key="/ShowBlackList.htm">showBlackListController</prop>
+			<prop key="/ShowHistory.htm">showHistoryController</prop>
+			<prop key="/SerchItem.htm">searchItemController</prop>
+			<prop key="/AdvancedSearch.htm">advancedSearchController</prop>
+			<prop key="/SellItem.htm">sellItemController</prop>
+			<prop key="/Logout.htm">logoutController</prop>
+			<prop key="/Registration.htm">registrationController</prop>
+			<prop key="/DeleteItem.htm">deleteItemController</prop>
+		</props>
+	</property>
+</bean>
+
+	<!-- Tiles -->
+  <bean id="tilesConfigurer" 
+      class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+    <property name="definitions">
+      <list>
+        <value>/WEB-INF/market-tiles.xml</value>
+      </list>
+    </property>
+  </bean>
+
+
+	<!-- Set view resolver  -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order"><value>2</value></property> 
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<!-- ResourceBundleViewResolver -->
+	<bean id="resourceBundleViewResolver"
+	class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="order"><value>1</value></property> 
+		<property name="basename" value="views" />
+	</bean>
+		
+</beans>

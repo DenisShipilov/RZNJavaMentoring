@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Here will be the context -->
+<Context path="/market" crossContext="true"
+				 								 reloadable="true" debug="1"> 
+  <Resource name="jdbc/marketPlace" auth="Container"
+              type="javax.sql.DataSource"
+			  driverClassName="oracle.jdbc.driver.OracleDriver"
+              url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+              username="market" password="market" 
+              maxActive="20" maxIdle="10"
+              maxWait="-1"/> 
+</Context>

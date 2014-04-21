@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>   
+    <resource-ref>
+        <description>Online Marketplace Oracle datasource</description>
+        <res-ref-name>jdbc/marketPlace</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <jndi-name>java:/jdbc/marketPlace</jndi-name>
+      </resource-ref> 
+</jboss-web>

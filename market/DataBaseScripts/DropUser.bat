@@ -1,0 +1,1 @@
+SQLPLUS X/X as sysdba @DropUser.sql

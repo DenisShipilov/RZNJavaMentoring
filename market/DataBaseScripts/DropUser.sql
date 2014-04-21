@@ -1,0 +1,1 @@
+DROP USER marketplace CASCADE;

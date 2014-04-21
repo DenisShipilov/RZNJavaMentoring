@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+  <local-tx-datasource>
+    <jndi-name>jdbc/marketPlace</jndi-name>
+    <connection-url>jdbc:oracle:thin:@127.0.0.1:1521:xe</connection-url>
+    <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+    <user-name>market</user-name>
+    <password>market</password>
+    <valid-connection-checker-classname>
+      org.jboss.resource.adapter.jdbc.vendor.OracleValidConnectionChecker
+    </valid-connection-checker-classname>
+    <metadata>
+      <type-mapping>Oracle9i</type-mapping>
+    </metadata>
+  </local-tx-datasource>
+</datasources>

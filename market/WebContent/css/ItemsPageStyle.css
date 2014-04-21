@@ -1,0 +1,151 @@
+@CHARSET "UTF-8";
+
+
+/*background image for site*/
+table.inner {
+	border-color: #808080;
+	border-collapse: collapse;
+}
+
+table.inner,td.inner,th.inner {
+	border: 1px solid black;
+}
+
+/* table header*/
+table.inner thead td {
+	cursor: pointer;
+	cursor: hand;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle
+}
+
+/* for sorted column */
+table.inner thead td.curcol {
+	background-color: #4682B4;
+	color: #FFFFFF
+}
+
+/*If 'p' selector exist in table*/
+p.table {
+	font-family: norma;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+caption.inner {
+	background: -webkit-linear-gradient(top, bottom, #4682B4, #0000FF);
+	/* для webkit-браузеров */
+	background: -moz-linear-gradient(top, #00CCFF, #000066);
+	/* для firefox 3.6+ */
+	background: -o-linear-gradient(top, #4682B4, #0000FF);
+	/* для Opera 11.10+ */
+	background: -ms-linear-gradient(top, #4682B4, #0000FF);
+	background-color: #4682B4;
+	/*parameters of text in this tags*/
+	text-align: left;
+	font-family: "Arial";
+	color: #FFFFFF;
+}
+
+/*Style for label*/
+label {
+	text-align: left;
+	font-family: "Arial", scans-serif;
+}
+
+/*'h4' for caption*/
+h4 {
+	text-align: right;
+	color: #4682B4;
+	font-size: 12px;
+}
+
+a {
+	text-align: left;
+	color: #4682B4;
+	font-size: 12px;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+/*
+ * Style for item number as link
+ */
+a.item {
+	border-bottom: 1px dotted #000000;
+	color: #000000;
+	outline: none;
+	cursor: help;
+	text-decoration: none;
+	position: relative;
+}
+
+/*Style for span element as asked*/
+.item span {
+	margin-left: -999em;
+	position: absolute;
+}
+
+.item:hover span {
+	font-family: Calibri, Tahoma, Geneva, sans-serif;
+	position: absolute;
+	left: 1em;
+	top: 2em;
+	z-index: 99;
+	margin-left: 0;
+	width: 250px;
+}
+
+.item:hover img {
+	border: 0;
+	margin: -10px 0 0 -55px;
+	float: left;
+	position: absolute;
+}
+
+.item:hover em {
+	font-family: Candara, Tahoma, Geneva, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	display: block;
+	padding: 0.2em 0 0.6em 0;
+}
+
+.classic {
+	padding: 0.8em 1em;
+}
+
+/* style for help  */
+.help {
+	background: #9FDAEE;
+	border: 1px solid #2BB0D7;
+}
+
+.custom {
+	padding: 0.5em 0.8em 0.8em 2em;
+}
+
+<
+strong>* html  </strong>a:hover {
+	background: transparent;
+}
+
+/*style for input button 'login'*/
+.login {
+	cursor: pointer;
+	width: 100px;
+	border: 0px;
+	background-color: #FFFFFF;
+	text-align: left;
+	color: #4682B4;
+	font-family: "Times New Roman";
+	font-size: 16px;
+	margin-left: 0px;
+	padding: 0px;
+}
+
+/*Style for text area*/
+textarea {
+	resize: none;
+}

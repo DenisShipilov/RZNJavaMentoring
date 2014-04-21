@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+ http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+ 
+ <bean id="user" class="dao.transfer.UserTransfer" scope="session">
+	<aop:scoped-proxy/>
+ </bean>
+ 
+  <!-- Bean to set search condition transfer -->
+ <bean id="condition" class="dao.transfer.SearchConditionTransfer">
+ </bean>
+ 
+ <!-- Oracle factory -->
+ <bean id="daoFactory" class="dao.oracle.DAOOracleFactory"></bean>
+</beans>
+ 
+
+ 
